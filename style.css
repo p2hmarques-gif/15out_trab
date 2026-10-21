@@ -1,0 +1,299 @@
+
+/* ==========================================
+   1. CONFIGURAÇÕES GERAIS DA PÁGINA
+   ========================================== */
+
+/* Seleciona todos os elementos da página */
+* {
+    box-sizing: border-box;
+    /* Faz largura e altura incluírem padding e bordas */
+}
+
+/* Define a aparência geral do corpo da página */
+body {
+    margin: 0;
+    /* Remove as margens padrão do navegador */
+
+    font-family: Arial, sans-serif;
+    /* Define Arial como fonte principal */
+
+    background: #f4f6f4;
+    /* Define a cor de fundo da página (cinza-claro) */
+
+    color: #333;
+    /* Define a cor padrão dos textos (cinza-escuro) */
+}
+
+
+/* ==========================================
+   2. CABEÇALHO DA PÁGINA
+   ========================================== */
+
+header {
+    background: #28574f;
+    /* Define a cor de fundo verde-escuro */
+
+    color: white;
+    /* Define a cor branca para os textos */
+
+    text-align: center;
+    /* Centraliza horizontalmente o texto */
+
+    padding: 20px;
+    /* Adiciona espaçamento interno de 20 pixels */
+}
+
+
+/* ==========================================
+   3. CONTEÚDO PRINCIPAL
+   ========================================== */
+
+main {
+    background: white;
+    /* Define o fundo branco para o conteúdo */
+
+    max-width: 500px;
+    /* Limita a largura máxima do conteúdo a 500 pixels */
+
+    margin: 30px auto;
+    /* Adiciona 30px acima e abaixo.
+       O valor auto centraliza horizontalmente. */
+
+    padding: 25px;
+    /* Cria espaçamento interno de 25 pixels */
+
+    border-radius: 8px;
+    /* Arredonda os cantos do conteúdo */
+
+    box-shadow: 0 3px 10px #0002;
+    /* Aplica uma sombra:
+       0 = deslocamento horizontal
+       3px = deslocamento vertical
+       10px = intensidade do desfoque
+       #0002 = preto com transparência */
+}
+
+
+/* ==========================================
+   4. TÍTULOS E FORMULÁRIOS
+   ========================================== */
+
+/* Aplica a mesma cor aos títulos h2 e h3 */
+h2, h3 {
+    color: #28574f;
+    /* Define a cor verde-escuro dos títulos */
+}
+
+/* Organiza os elementos dos formulários */
+form {
+    display: flex;
+    /* Ativa o sistema de layout Flexbox */
+
+    flex-direction: column;
+    /* Organiza os elementos verticalmente */
+
+    gap: 10px;
+    /* Define espaçamento de 10px entre os elementos */
+}
+
+/* Define a aparência dos rótulos dos campos */
+label {
+    font-weight: bold;
+    /* Exibe os textos dos rótulos em negrito */
+}
+
+
+/* ==========================================
+   5. CAMPOS DE ENTRADA E BOTÕES
+   ========================================== */
+
+/* Estilos compartilhados por inputs e botões */
+input, button {
+    width: 100%;
+    /* Faz os elementos ocuparem toda a largura disponível */
+
+    padding: 10px;
+    /* Adiciona espaçamento interno de 10 pixels */
+
+    border-radius: 5px;
+    /* Arredonda os cantos dos elementos */
+}
+
+/* Configuração específica dos campos de entrada */
+input {
+    border: 1px solid #ccc;
+    /* Define uma borda cinza de 1 pixel */
+}
+
+/* Configuração visual dos botões */
+button {
+    border: 0;
+    /* Remove a borda padrão do botão */
+
+    background: #317568;
+    /* Define a cor de fundo verde */
+
+    color: white;
+    /* Define a cor branca para o texto do botão */
+
+    cursor: pointer;
+    /* Exibe a mão ao posicionar o mouse sobre o botão */
+}
+
+/* Estilo aplicado quando o mouse passa sobre o botão */
+button:hover {
+    background: #245b50;
+    /* Altera o fundo para um verde mais escuro */
+}
+
+
+/* ==========================================
+   6. ORGANIZAÇÃO DE QUANTIDADE E PREÇO
+   ========================================== */
+
+/* Posiciona quantidade e preço lado a lado */
+.linha {
+    display: flex;
+    /* Ativa o Flexbox para organizar os campos */
+
+    gap: 12px;
+    /* Cria um espaço de 12px entre os campos */
+}
+
+/* Configura as divs dentro da classe linha */
+.linha div {
+    flex: 1;
+    /* Distribui igualmente o espaço disponível */
+
+    min-width: 0;
+    /* Permite reduzir a largura para evitar transbordamento */
+}
+
+/* Configura os rótulos dentro da classe linha */
+.linha label {
+    display: block;
+    /* Faz o rótulo ocupar sua própria linha */
+
+    margin-bottom: 8px;
+    /* Cria um espaço abaixo do rótulo */
+}
+
+
+/* ==========================================
+   7. LISTA DE PRODUTOS E SERVIÇOS
+   ========================================== */
+
+/* Configura a lista de itens cadastrados */
+ul {
+    padding: 0;
+    /* Remove o espaçamento interno padrão da lista */
+
+    list-style: none;
+    /* Remove os marcadores tradicionais da lista */
+}
+
+/* Configura cada item da lista */
+li {
+    display: flex;
+    /* Organiza os elementos do item em uma linha */
+
+    justify-content: space-between;
+    /* Distribui os elementos entre as extremidades */
+
+    align-items: center;
+    /* Alinha verticalmente os elementos ao centro */
+
+    gap: 10px;
+    /* Define espaçamento entre os elementos */
+
+    padding: 7px 0;
+    /* Adiciona 7px acima e abaixo, sem espaço lateral */
+}
+
+/* Configura os botões existentes dentro da lista */
+li button {
+    width: auto;
+    /* Ajusta a largura automaticamente ao conteúdo */
+
+    background: #a94442;
+    /* Define a cor vermelha para os botões de remoção */
+}
+
+
+/* ==========================================
+   8. RESULTADO DO ORÇAMENTO
+   ========================================== */
+
+/* Estiliza a seção onde aparecem os resultados */
+.resultado {
+    background: #edf5f1;
+    /* Define um fundo verde-claro */
+
+    padding: 15px;
+    /* Adiciona espaçamento interno de 15 pixels */
+
+    margin-top: 20px;
+    /* Cria espaço acima da seção de resultados */
+
+    border-radius: 5px;
+    /* Arredonda os cantos da seção */
+}
+
+/* Configura os campos dentro da seção de resultados */
+.resultado input {
+    margin-top: 8px;
+    /* Adiciona espaço acima dos campos */
+
+    background: white;
+    /* Define a cor branca para o fundo dos campos */
+}
+
+/* Destaca o valor final a pagar */
+.final {
+    font-weight: bold;
+    /* Exibe o texto em negrito */
+
+    color: #16734f;
+    /* Define a cor verde para destacar o resultado */
+
+    font-size: 18px;
+    /* Define o tamanho da fonte como 18 pixels */
+}
+
+
+/* ==========================================
+   9. RODAPÉ DA PÁGINA
+   ========================================== */
+
+footer {
+    text-align: center;
+    /* Centraliza o texto do rodapé */
+
+    padding: 20px;
+    /* Cria espaçamento interno de 20 pixels */
+
+    color: #666;
+    /* Define a cor cinza para o texto */
+}
+
+
+/* ==========================================
+   10. RESPONSIVIDADE PARA CELULARES
+   ========================================== */
+
+/* Aplica as regras quando a tela tiver
+   largura igual ou inferior a 550 pixels */
+@media (max-width: 550px) {
+
+    main {
+        margin: 15px;
+        /* Reduz as margens para aproveitar
+           melhor o espaço em telas pequenas */
+    }
+
+    .linha {
+        flex-direction: column;
+        /* Organiza quantidade e preço verticalmente
+           em vez de deixá-los lado a lado */
+    }
+}

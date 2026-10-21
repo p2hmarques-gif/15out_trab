@@ -1,0 +1,229 @@
+
+<!DOCTYPE html>
+<!-- Informa ao navegador que o documento utiliza HTML5 -->
+
+<html lang="pt-BR">
+<!-- Início do HTML. Define o português brasileiro como idioma -->
+
+<head>
+    <!-- Contém as configurações e informações da página -->
+
+    <meta charset="UTF-8">
+    <!-- Permite utilizar acentos e caracteres especiais -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Ajusta a página para diferentes tamanhos de tela -->
+
+    <title>Orçamento de Compras</title>
+    <!-- Define o título exibido na aba do navegador -->
+
+    <link rel="stylesheet" href="style.css">
+    <!-- Conecta o arquivo CSS responsável pelo visual da página -->
+
+    <script src="main.js" defer></script>
+    <!--
+        Conecta o arquivo JavaScript.
+        O atributo defer faz o script executar após
+        o HTML ter sido analisado pelo navegador.
+    -->
+</head>
+
+<body>
+    <!-- Contém todo o conteúdo visível da página -->
+
+    <header>
+        <!-- Cabeçalho principal da página -->
+
+        <h1>Orçamento de Compras</h1>
+        <!-- Título principal do sistema -->
+
+        <p>Produtos, serviços e descontos</p>
+        <!-- Descrição da finalidade do sistema -->
+    </header>
+
+    <main>
+        <!-- Contém o conteúdo principal da aplicação -->
+
+        <h2>Adicionar item</h2>
+        <!-- Título da seção de cadastro -->
+
+        <!-- Formulário para cadastrar produtos ou serviços -->
+        <form id="formItem">
+            <!--
+                form cria um formulário.
+                id="formItem" identifica o formulário
+                para que o JavaScript possa manipulá-lo.
+            -->
+
+            <label for="nomeItem">Produto ou serviço</label>
+            <!--
+                label identifica o campo de entrada.
+                for conecta o texto ao input com o mesmo id.
+            -->
+
+            <input type="text" id="nomeItem" required>
+            <!--
+                type="text": permite digitar texto.
+                id="nomeItem": identifica o campo.
+                required: torna o preenchimento obrigatório.
+            -->
+
+            <div class="linha">
+                <!--
+                    Agrupa os campos de quantidade e preço.
+                    class="linha" permite aplicar estilos pelo CSS.
+                -->
+
+                <div>
+                    <!-- Agrupamento do campo quantidade -->
+
+                    <label for="quantidade">Quantidade</label>
+                    <!-- Identifica o campo de quantidade -->
+
+                    <input type="number" id="quantidade"
+                           min="1" step="1" value="1" required>
+                    <!--
+                        type="number": aceita valores numéricos.
+                        min="1": menor valor permitido é 1.
+                        step="1": utiliza incrementos de 1.
+                        value="1": valor inicial do campo.
+                        required: preenchimento obrigatório.
+                    -->
+                </div>
+
+                <div>
+                    <!-- Agrupamento do campo preço -->
+
+                    <label for="preco">Preço unitário (R$)</label>
+                    <!-- Identifica o campo de preço unitário -->
+
+                    <input type="number" id="preco"
+                           min="0.01" step="0.01" required>
+                    <!--
+                        type="number": recebe valores numéricos.
+                        min="0.01": estabelece o preço mínimo.
+                        step="0.01": permite valores com centavos.
+                        required: preenchimento obrigatório.
+                    -->
+                </div>
+            </div>
+
+            <button type="submit">Adicionar</button>
+            <!--
+                Botão responsável por enviar o formulário.
+                O JavaScript poderá capturar esse envio
+                para adicionar o item à lista.
+            -->
+        </form>
+
+        <!-- Seção responsável por apresentar os itens -->
+
+        <h3>Itens cadastrados</h3>
+        <!-- Título da lista de produtos e serviços -->
+
+        <ul id="listaItens"></ul>
+        <!--
+            ul cria uma lista não ordenada.
+            A lista começa vazia.
+            O JavaScript poderá inserir elementos li
+            com os produtos e serviços cadastrados.
+        -->
+
+        <hr>
+        <!-- Insere uma linha horizontal separando as seções -->
+
+        <h2>Resumo da compra</h2>
+        <!-- Título da seção de cálculo do desconto -->
+
+        <form id="formCompra">
+            <!--
+                Formulário utilizado para solicitar
+                o cálculo do desconto.
+            -->
+
+            <label for="total">Valor total (R$)</label>
+            <!-- Identifica o campo do valor total -->
+
+            <input type="number" id="total"
+                   min="0" step="0.01" value="0" required>
+            <!--
+                type="number": campo numérico.
+                id="total": identifica o valor total.
+                min="0": não permite valores negativos.
+                step="0.01": aceita valores com centavos.
+                value="0": valor inicial igual a zero.
+                required: campo obrigatório.
+
+                O JavaScript poderá atualizar esse valor
+                conforme os itens forem adicionados.
+            -->
+
+            <button type="submit">Calcular desconto</button>
+            <!--
+                Envia o formulário de compra.
+                O JavaScript poderá calcular o desconto
+                quando esse botão for acionado.
+            -->
+        </form>
+
+        <!-- Seção onde serão apresentados os resultados -->
+
+        <section class="resultado" aria-live="polite">
+            <!--
+                section agrupa os resultados do cálculo.
+                class="resultado" permite estilização no CSS.
+
+                aria-live="polite" informa aos leitores de tela
+                que alterações nessa região podem ser anunciadas
+                sem interromper imediatamente a leitura.
+            -->
+
+            <label for="percentual">
+                Porcentagem de desconto
+            </label>
+            <!-- Identifica o campo percentual de desconto -->
+
+            <input type="text" id="percentual"
+                   value="0%" readonly>
+            <!--
+                Exibe a porcentagem de desconto.
+                value="0%": valor apresentado inicialmente.
+                readonly: impede a edição pelo usuário.
+
+                O JavaScript poderá modificar esse valor.
+            -->
+
+            <p>
+                Valor do desconto:
+                <strong id="desconto">R$ 0,00</strong>
+            </p>
+            <!--
+                Exibe o valor monetário do desconto.
+                strong destaca o valor visualmente
+                e indica maior importância semântica.
+                id="desconto" permite atualizá-lo pelo JavaScript.
+            -->
+
+            <p class="final">
+                Total a pagar:
+                <strong id="totalFinal">R$ 0,00</strong>
+            </p>
+            <!--
+                Exibe o valor final após o desconto.
+                class="final" permite uma estilização específica.
+                id="totalFinal" permite ao JavaScript
+                atualizar o total a pagar.
+            -->
+        </section>
+    </main>
+
+    <footer>
+        Projeto acadêmico - HTML, CSS e JavaScript
+    </footer>
+    <!-- Rodapé com informações sobre o projeto -->
+
+</body>
+<!-- Finaliza o conteúdo visível da página -->
+
+</html>
+<!-- Finaliza o documento HTML -->
